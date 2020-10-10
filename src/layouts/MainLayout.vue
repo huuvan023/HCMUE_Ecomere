@@ -45,11 +45,11 @@
 
       <q-toolbar class="row no-padding full-width">
         <q-toolbar-title class="col-11 row q-mx-auto q-py-md flex items-center justify-between">
-          <div class="logo">Subscribe
+          <div @click="go('/')" class="cursor-pointer logo q-mx-xs-auto q-mx-sm-none">
             <img class="full-width full-height" alt="logo" src="logo.png">
           </div>
-          <div class="text-black" style="width: 30%">
-            <q-input rounded outlined v-model="searchKey" color="dark" placeholder="Search product" :dense="dense">
+          <div class="text-black q-mx-auto q-my-xs-md q-my-sm-none">
+            <q-input rounded outlined v-model="searchKey" color="dark" style="min-width: 30vw" placeholder="Search product" :dense="dense">
               <template v-slot:append>
                 <q-icon v-if="searchKey.length > 0"
                         style="cursor: pointer"
@@ -64,9 +64,9 @@
             </q-input>
           </div>
 
-          <div class="row text-black">
+          <div class="row text-black q-mt-xs-md q-mt-md-none q-mx-xs-auto q-mx-md-none">
             <div class="col-12 row q-mb-sm">
-              <div class="q-ml-auto flex justify-lg-end">
+              <div class="q-ml-md-auto q-mx-xs-auto q-mx-md-none flex justify-lg-end">
                 <q-btn outline round color="dark" class="q-mr-sm" icon="favorite_border">
                   <q-badge color="red" text-color="white"  floating>2</q-badge>
                   <q-tooltip anchor="center right" self="center left">
@@ -82,7 +82,7 @@
               </div>
             </div>
             <div class="col-12 row text-right full-width">
-              <div class="q-ml-auto flex justify-lg-end">
+              <div class="q-ml-md-auto q-mx-xs-auto q-mx-md-none flex justify-lg-end">
                 <div class="q-mr-sm authBtn">Login</div>
                 <div>|</div>
                 <div class="q-ml-sm authBtn">Sign up</div>
@@ -230,7 +230,7 @@
       <router-view />
     </q-page-container>
   <div class="col-12 row q-mb-md">
-    <div class="row col-12 q-pb-xl">
+    <div class="row col-12 q-pb-xl q-pb-xs-none">
       <div class="col-2">
         <q-img src="/galleries/insta-1.jpg" class="full-width"/>
       </div>
@@ -251,13 +251,14 @@
       </div>
     </div>
     <div style="font-family: Actor" class="col-11 q-my-md q-mx-auto row">
-      <div class="col-3 text-center">
-        <div style="font-family: Architects Daughter" class="text-h5 q-mb-md text-weight-bold">HCMUE Ecommerce</div>
+      <div class="col-sm-3 col-xs-12 q-mx-auto q-my-sm-none q-my-xs-sm text-center">
+        <div style="font-family: Architects Daughter"
+             class="text-h5 q-mb-sm-md text-weight-bold ">HCMUE Ecommerce</div>
         <div class="text-subtitle1">
           Serving customers is our pleasure
         </div>
       </div>
-      <div class="col-3 text-center">
+      <div class="col-sm-3 col-xs-6 text-center">
         <div class="text-h5 q-mb-md text-weight-bold">
           Quick link
         </div>
@@ -274,7 +275,7 @@
           FAQ
         </div>
       </div>
-      <div class="col-3 text-center">
+      <div class="col-sm-3 col-xs-6 text-center">
         <div class="text-h5 q-mb-md text-weight-bold">
           Other content
         </div>
@@ -288,8 +289,8 @@
           Transport require
         </div>
       </div>
-      <div class="col-3 text-center">
-        <div class="text-h5 q-mb-md text-weight-bold">
+      <div class="col-sm-3 col-xs-12 text-center">
+        <div class="text-h5 q-mb-sm-md q-mb-xs-sm text-weight-bold">
           Subscribe to receive news from us
         </div>
         <div class="q-mb-md">

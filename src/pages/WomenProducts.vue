@@ -1,7 +1,7 @@
 <template>
   <div class="row q-mt-sm col-12">
     <div class="col-11 row q-mx-auto q-mb-xl">
-      <q-breadcrumbs class="col-12 q-my-md">
+      <q-breadcrumbs class="col-12 q-my-md-md q-my-xs-sm">
         <q-breadcrumbs-el to="/" label="Home" />
         <q-breadcrumbs-el label="Women products" />
       </q-breadcrumbs>
@@ -9,14 +9,14 @@
       <div class="col-12 row">
         <div class="col-md-4 col-xs-12 non-selectable">
           <div class="col-12">
-            <div class="text-h5 text-weight-bold q-my-md">Brands</div>
+            <div class="text-h5 text-weight-bold q-my-xs-sm q-my-md-md">Brands</div>
             <div class="col-12 row">
               <q-checkbox class="col-6" v-for="(item,key) in brands" v-model="item.value" size="md" :key="key" :label="item.name" color="dark" />
             </div>
           </div>
-          <q-separator class="q-mt-md" inset/>
+          <q-separator class="q-mt-xs-sm q-mt-md-md" inset/>
           <div class="col-12">
-            <div class="text-h5 text-weight-bold q-my-md">Price</div>
+            <div class="text-h5 text-weight-bold q-my-xs-sm q-my-md-md">Price</div>
             <div class="flex justify-center col-12">
               <div>
                 <span class="q-px-md" style="border: 1px solid black">{{rangePrice.min}}</span>
@@ -32,16 +32,16 @@
                 :max="150"
               />
             </div>
-            <q-separator class="q-mt-md" inset/>
+            <q-separator class="q-mt-xs-sm q-mt-md-md" inset/>
             <div class="col-12">
-              <div class="text-h5 text-weight-bold q-my-md">Size</div>
+              <div class="text-h5 text-weight-bold q-my-xs-sm q-my-md-md">Size</div>
               <div class="col-12 row">
-                <q-checkbox class="col-6" v-for="(item,key) in sizes" v-model="item.value" size="md" :key="key" :label="item.name" color="dark" />
+                <q-checkbox class="col-md-6 col-xs-3" v-for="(item,key) in sizes" v-model="item.value" size="md" :key="key" :label="item.name" color="dark" />
               </div>
             </div>
-            <q-separator class="q-mt-md" inset/>
+            <q-separator class="q-mt-xs-sm q-mt-md-md" inset/>
             <div class="col-12">
-              <div class="text-h5 text-weight-bold q-my-md">Tags</div>
+              <div class="text-h5 text-weight-bold q-my-xs-sm q-my-md-md">Tags</div>
               <div class="col-12 row">
                 <q-chip v-for="(item,key) in catesList" @click="filterTags(item)" square :key="key"
                         clickable class="q-pa-md" style="border: 0.5px solid grey"
@@ -53,9 +53,9 @@
           </div>
         </div>
 
-        <div class="q-pl-md-lg q-pl-xs-none  col-md-8 col-sx-12">
+        <div class="q-pl-md-lg q-pl-xs-none col-md-8 col-sx-12">
           <div style="font-family: Alata" class="flex items-center full-width q-ml-md-md q-ml-xs-none q-my-md">
-            <q-btn-dropdown class="q-ml-sm" outline>
+            <q-btn-dropdown class="q-ml-sm q-mx-xs-auto q-mx-sm-none" outline>
               <template v-slot:label>
                 <div class="row items-center no-wrap">
                   Sorting by: <span class="q-ml-lg">{{sorting}}</span>
@@ -81,7 +81,7 @@
                 </q-item>
               </q-list>
             </q-btn-dropdown>
-            <q-btn-dropdown outline class="q-ml-xl">
+            <q-btn-dropdown outline class="q-ml-sm-xl q-mt-xs-sm q-mt-sm-none q-mx-xs-auto">
               <template v-slot:label>
                 <div class="row items-center no-wrap">
                   Show: <span class="q-ml-lg">{{showItem}} items</span>
@@ -107,7 +107,7 @@
                 </q-item>
               </q-list>
             </q-btn-dropdown>
-            <div class="text-subtitle1 q-mr-sm q-ml-md-auto q-mt-xs-sm q-mt-md-none">
+            <div class="text-subtitle q-mx-xs-auto q-mx-sm-none q-mr-sm q-ml-md-auto q-mt-xs-sm q-mt-md-none">
               Show 01-09 of 36 Products
             </div>
           </div>

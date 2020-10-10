@@ -1,5 +1,5 @@
 <template>
-  <div class="col-lg-4 col-md-6 col-xs-12 q-px-sm">
+  <div class="col-lg-4 col-md-6 col-xs-12 q-px-sm-sm">
     <q-card class="card-handle">
       <q-card-section class="col-12 no-padding">
         <q-img style="max-height: 35vh" :src="linkURLImage">
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import 'quasar/dist/quasar.addon.css'
 export default {
   name: "CardProductDashboard",
   data () {

@@ -1,44 +1,44 @@
 <template>
   <div>
-    <div class="text-center flex text-h4" v-if="currentTime">
-      <span class="q-mx-sm" v-if="days">
+    <div class="text-center flex " v-if="currentTime">
+      <span class="q-mx-sm responsive-text" v-if="days">
         <div>{{ days }}</div>
         <div>days</div>
       </span>
       <q-separator vertical/>
-      <span class="q-mx-sm" v-if="!days">
+      <span class="q-mx-sm responsive-text" v-if="!days">
         <div>00</div>
         <div>hours</div>
       </span>
       <q-separator v-if="!days" vertical/>
 
-      <span class="q-mx-sm" v-if="hours">
+      <span class="q-mx-sm responsive-text" v-if="hours">
         <div>{{ hours | formatTime }}</div>
         <div>hours</div>
       </span>
       <q-separator vertical/>
-      <span class="q-mx-sm" v-if="!hours">
+      <span class="q-mx-sm responsive-text" v-if="!hours">
         <div>00</div>
         <div>hours</div>
       </span>
       <q-separator v-if="!hours" vertical/>
 
-      <span class="q-mx-sm" v-if="minutes">
+      <span class="q-mx-sm responsive-text" v-if="minutes">
         <div>{{ minutes | formatTime }}</div>
         <div>minutes</div>
       </span>
       <q-separator vertical/>
-      <span class="q-mx-sm" v-if="!minutes">
+      <span class="q-mx-sm responsive-text" v-if="!minutes">
         <div>00</div>
         <div>minutes</div>
       </span>
       <q-separator v-if="!minutes" vertical/>
 
-      <span class="q-mx-sm" v-if="seconds">
+      <span class="q-mx-sm responsive-text" v-if="seconds">
         <div>{{ seconds | formatTime }}</div>
         <div>minutes</div>
       </span>
-      <span class="q-mx-sm" v-if="!seconds">
+      <span class="q-mx-sm responsive-text" v-if="!seconds">
         <div>00</div>
         <div>minutes</div>
       </span>
@@ -105,3 +105,14 @@ export default {
   }
 }
 </script>
+<style scoped>
+
+  .responsive-text {
+    font-size: 20px;
+  }
+@media screen and (min-width: 320px) {
+  .responsive-text {
+    font-size: calc(10px + 8 * ((100vw - 320px) / 960));
+  }
+}
+</style>
