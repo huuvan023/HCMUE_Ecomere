@@ -73,7 +73,7 @@
                     Favourite items
                   </q-tooltip>
                 </q-btn>
-                <q-btn outline round color="dark" class="q-ml-lg q-mr-sm" icon="shopping_cart">
+                <q-btn outline round @click="go('/cart')" color="dark" class="q-ml-lg q-mr-sm" icon="shopping_cart">
                   <q-badge color="red" text-color="white"  floating>2</q-badge>
                   <q-tooltip content-class=" " anchor="center right" self="center left">
                     Your cart
@@ -82,7 +82,7 @@
               </div>
             </div>
             <div class="col-12 row text-right full-width">
-              <div class="q-ml-md-auto q-mx-xs-auto q-mx-md-none flex justify-lg-end">
+              <div  @click="go('/login')" class="q-ml-md-auto q-mx-xs-auto q-mx-md-none flex justify-lg-end">
                 <div class="q-mr-sm authBtn">Login</div>
                 <div>|</div>
                 <div class="q-ml-sm authBtn">Sign up</div>
@@ -335,9 +335,9 @@ export default {
     }
   },
   async created() {
-    console.log(this.$router.currentRoute.path)
+   // console.log(this.$router.currentRoute.path)
     this.tab = this.$router.currentRoute.path
-    console.log(this.tab)
+    //console.log(this.tab)
   },
   computed: {
     ...mapState(

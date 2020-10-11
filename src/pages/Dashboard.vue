@@ -92,7 +92,7 @@
     <div style="background-color: #F0F0F0"
       class="col-12 row q-py-md-xl">
       <div class="q-py-xl col-sm-8 q-mx-auto row">
-        <div class="col-xs-8 q-mx-xs-auto q-mx-md-none"
+        <div class="col-xs-8 col-md-4 q-mx-xs-auto q-mx-md-none"
              data-aos="fade-down"
              data-aos-duration="500"
              data-aos-easing="ease-in-out"

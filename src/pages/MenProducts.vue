@@ -1,7 +1,7 @@
 <template>
   <div class="row q-mt-sm col-12">
     <div class="col-11 row q-mx-auto q-mb-xl">
-      <q-breadcrumbs class="col-12 q-my-xs-sm q-my-md-md">
+      <q-breadcrumbs class="col-12 q-my-md-md q-my-xs-sm">
         <q-breadcrumbs-el to="/" label="Home" />
         <q-breadcrumbs-el label="Men products" />
       </q-breadcrumbs>

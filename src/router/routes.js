@@ -26,6 +26,14 @@ const routes = [
       {
         path: '/bags-n-purses',
         component: () => import('pages/BagsNPurses')
+      },
+      {
+        path: '/product',
+        component: () => import('pages/Product')
+      },
+      {
+        path: '/cart',
+        component: () => import('pages/Cart')
       }
     ]
   },

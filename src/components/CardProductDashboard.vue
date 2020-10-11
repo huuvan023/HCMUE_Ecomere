@@ -1,5 +1,5 @@
 <template>
-  <div class="col-lg-4 col-md-6 col-xs-12 q-px-sm-sm">
+  <div @click="go('/product')" class="col-lg-4 col-md-6 col-xs-12 q-px-sm-sm">
     <q-card class="card-handle">
       <q-card-section class="col-12 no-padding">
         <q-img style="max-height: 35vh" :src="linkURLImage">
@@ -37,7 +37,10 @@
               </template>
             </q-rating>
           </div>
-          <div class="flex justify-center q-mt-md full-width">
+          <div class="flex justify-center text-subtitle1 q-mt-xs-xs q-mt-md-md  full-width">
+            Product name
+          </div>
+          <div class="flex justify-center q-mt-xs-xs q-mt-md-md full-width">
             <div class="flex text-h6 text-weight-bold q-mb-md">
               <div class="q-mx-xs">$40.00</div> -
               <div class="q-mx-xs text-red" style="text-decoration: line-through">$60.00</div>
@@ -56,6 +59,13 @@ export default {
   data () {
     return {
     }
+  },
+  methods: {
+    go (url) {
+      if (this.$route.path !== url) {
+        this.$router.replace(url)
+      }
+    },
   },
   props: {
     isNew: {

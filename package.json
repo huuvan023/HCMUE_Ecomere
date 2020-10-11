@@ -15,6 +15,7 @@
     "core-js": "^3.6.5",
     "dotenv": "^8.2.0",
     "quasar": "^1.0.0",
+    "v-viewer": "^1.5.1",
     "vue-backtotop": "^1.6.1",
     "vue-typed-js": "^0.1.2"
   },
