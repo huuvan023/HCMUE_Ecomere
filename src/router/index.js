@@ -9,7 +9,7 @@ export default function (/* { store, ssrContext } */) {
   const Router = new VueRouter({
     scrollBehavior: () => ({ x: 0, y: 0 }),
     routes,
-    mode: process.env.VUE_ROUTER_MODE,
+    mode: 'history',
     base: process.env.VUE_ROUTER_BASE
   })
   /*

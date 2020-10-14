@@ -4,16 +4,15 @@
       <q-card-section class="col-12 no-padding">
         <q-img style="max-height: 35vh" :src="linkURLImage">
           <q-badge v-if="isNew" color="red" style="font-family: Actor" align="top">NEW</q-badge>
-          <q-btn outline class="absolute-bottom-right q-mb-xs q-mr-xs"
-                 round color="red" @click="favourite = !favourite" >
+          <q-btn outline class="absolute-top-right q-mt-xs q-mr-xs"
+                 round color="dark">
             <q-tooltip>
               Your {{ favourite ? 'like' : 'don\'t like'}} this one
             </q-tooltip>
-            <q-icon v-if="!favourite" color="red" name="favorite_border"/>
-            <q-icon v-if="favourite" color="red" name="favorite"/>
+            <q-icon color="dark" name="close"/>
           </q-btn>
         </q-img>
-        <div class="q-my-md full-width" @click="go('/product')">
+        <div class="q-mt-md q-mb-sm full-width">
           <div class="flex full-width justify-center">
             <q-rating
               v-model="ratingModel"
@@ -37,10 +36,10 @@
               </template>
             </q-rating>
           </div>
-          <div class="flex justify-center text-subtitle1 q-mt-xs-xs q-mt-md-md  full-width">
+          <div @click="go('/product')" class="cursor-pointer flex justify-center text-subtitle1 q-mt-xs-xs q-mt-md-sm  full-width">
             Product name
           </div>
-          <div class="flex justify-center q-mt-xs-xs q-mt-md-md full-width">
+          <div class="flex justify-center q-mt-xs-xs q-mt-md-sm full-width">
             <div class="flex text-h6 text-weight-bold q-mb-md">
               <div class="q-mx-xs">$40.00</div> -
               <div class="q-mx-xs text-red" style="text-decoration: line-through">$60.00</div>
@@ -49,13 +48,16 @@
         </div>
       </q-card-section>
     </q-card>
+    <div class="col-12 q-mb-md">
+      <q-btn outline @click="addToCart" class=" full-width" label="ADD TO CART"/>
+    </div>
   </div>
 </template>
 
 <script>
 import 'quasar/dist/quasar.addon.css'
 export default {
-  name: "CardProductDashboard",
+  name: "CardProductFavourite",
   data () {
     return {
     }
@@ -66,6 +68,14 @@ export default {
         this.$router.replace(url)
       }
     },
+    addToCart() {
+      this.$q.notify({
+        type: 'positive',
+        message: `Add item to your cart successfully!`,
+        position: 'top-right',
+        timeout: 1000
+      })
+    }
   },
   props: {
     isNew: {
@@ -89,9 +99,6 @@ export default {
 </script>
 
 <style scoped>
-.card-handle {
-  cursor:pointer;
-}
 .card-handle:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition: all .5s;

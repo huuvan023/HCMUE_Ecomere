@@ -67,7 +67,7 @@
           <div class="row text-black q-mt-xs-md q-mt-md-none q-mx-xs-auto q-mx-md-none">
             <div class="col-12 row q-mb-sm">
               <div class="q-ml-md-auto q-mx-xs-auto q-mx-md-none flex justify-lg-end">
-                <q-btn outline round color="dark" class="q-mr-sm" icon="favorite_border">
+                <q-btn @click="go('/favourite-item')" outline round color="dark" class="q-mr-sm" icon="favorite_border">
                   <q-badge color="red" text-color="white"  floating>2</q-badge>
                   <q-tooltip anchor="center right" self="center left">
                     Favourite items
@@ -82,10 +82,15 @@
               </div>
             </div>
             <div class="col-12 row text-right full-width">
-              <div  @click="go('/login')" class="q-ml-md-auto q-mx-xs-auto q-mx-md-none flex justify-lg-end">
+              <div v-if="!logged" @click="go('/login')" class="q-ml-md-auto q-mx-xs-auto q-mx-md-none flex justify-lg-end">
                 <div class="q-mr-sm authBtn">Login</div>
                 <div>|</div>
                 <div class="q-ml-sm authBtn">Sign up</div>
+              </div>
+              <div v-if="logged" @click="go('/user')"
+                   class="non-selectable authBtn q-ml-md-auto q-mx-xs-auto q-mx-md-none flex items-center justify-lg-end">
+                <q-icon class="q-mr-sm" size="md" name="account_circle"/>
+                <div>Hữu Văn</div>
               </div>
             </div>
           </div>
@@ -321,6 +326,7 @@
 </template>
 
 <script>
+import 'quasar/dist/quasar.addon.css'
 import {mapActions, mapState} from "vuex";
 
 export default {
@@ -332,6 +338,7 @@ export default {
       searchKey: "",
       tab: '/',
       subscribe:'',
+      logged: false,
     }
   },
   async created() {

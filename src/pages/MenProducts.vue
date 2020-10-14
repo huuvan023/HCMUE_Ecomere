@@ -252,7 +252,7 @@ export default {
   computed: {
   },
   created() {
-    //console.log(this.catesList)
+    //console.log(process.env.VUE_ROUTER_BASE)
   }
 }
 </script>
