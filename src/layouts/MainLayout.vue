@@ -9,14 +9,6 @@
             <div class="text-subtitle2">Call: +84372746758</div>
           </div>
           <div class="flex items-center q-ml-auto">
-            <div class="text-white">
-              Dark mode
-              <q-toggle
-                color="black"
-                dark
-                v-model="darkMode"
-              />
-            </div>
             <div class="text-white flex items-center q-ml-md">
               <q-btn icon="language" round color="dark" >
                 <q-menu
@@ -338,7 +330,7 @@ export default {
       searchKey: "",
       tab: '/',
       subscribe:'',
-      logged: false,
+      logged: true,
     }
   },
   async created() {

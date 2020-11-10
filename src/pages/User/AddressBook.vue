@@ -4,7 +4,7 @@
       <div class="col-12">
         <q-icon name="home" size="lg"/>
       </div>
-      <div class="text-h4 q-my-md text-weight-bold">Address Book</div>
+      <div class="text-h4 q-my-md text-weight-bold col-12">Address Book</div>
       <div class="col-8 row" style="font-family: Actor">
         <div class="col-12 q-my-sm">
           <label class="text-weight-bold text-grey-7 text-h6">

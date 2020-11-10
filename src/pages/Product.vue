@@ -105,6 +105,107 @@
     </div>
     <q-separator class="q-my-md" />
     <div style="font-family: Actor" class="col-md-8 col-xs-12 q-mx-auto row">
+      <div class="col-md-6 col-xs-12 text-center">
+        <div class="q-px-xs-md q-px-md-none text-weight-bold text-h6 q-my-md text-uppercase text-h5">
+          REVIEWS
+        </div>
+        <div>
+          <q-rating
+            v-model="totalRating"
+            max="5"
+            size="2.5em"
+            color="black"
+            icon="star_border"
+            icon-selected="star"
+            icon-half="star_half"
+            no-dimming
+          />
+          <div>(3 reviews)</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-xs-12 text-center">
+        <div class="q-px-xs-md q-px-md-none text-weight-bold text-h6 q-my-md text-uppercase text-h5">
+          MOST RECENT REVIEW
+        </div>
+        <div>
+          <q-rating
+            v-model="recentlyRating"
+            max="5"
+            size="2.5em"
+            color="black"
+            icon="star_border"
+            icon-selected="star"
+            icon-half="star_half"
+            no-dimming
+          />
+        </div>
+      </div>
+      <div class="col-12 flex justify-center q-mt-md q-mb-sm">
+        <q-btn label="Show all reviews" @click="open()"  outline class="text-weight-bold text-subtitle1"/>
+      </div>
+
+      <q-dialog v-model="dialog" position="right" full-height>
+       <q-card style="width: 400px">
+        <q-card-section class="row items-center q-pb-none">
+          <div class="text-h6 text-weight-bold">All reviews</div>
+          <q-space />
+          <q-btn icon="close" flat round dense v-close-popup />
+        </q-card-section>
+        <q-separator inset/>
+
+        <q-card-section>
+          <div class="flex items-center">
+            <q-rating
+              v-model="totalRating"
+              max="5"
+              size="2.5em"
+              color="black"
+              icon="star_border"
+              icon-selected="star"
+              icon-half="star_half"
+              no-dimming
+            />
+            <div>(3 reviews)</div>
+            <div class="text-h5 text-weight-bold q-ml-md">4.5</div>
+          </div>
+          <q-separator inset class="q-my-md"/>
+          <div class="text-subtitle1 text-weight-bold q-mb-md">Comments</div>
+          <div class="overflow-auto">
+            <UserComment/>
+            <UserComment/>
+            <UserComment/>
+            <UserComment/>
+            <UserComment/>
+            <UserComment/>
+            <UserComment/>
+            <UserComment/>
+            <UserComment/>
+            <UserComment/>
+          </div>
+        </q-card-section>
+       <q-card-section >
+         <span>Rate: </span>
+         <q-rating
+           v-model="totalRating"
+           max="5"
+           size="2.5em"
+           color="black"
+           icon="star_border"
+           icon-selected="star"
+           icon-half="star_half"
+           no-dimming
+         />
+         <q-input type="text" label="Type your comment" outlined color="black">
+           <template v-slot:append>
+             <q-icon name="send" class="cursor-pointer" color="black" />
+           </template>
+         </q-input>
+       </q-card-section>
+      </q-card>
+    </q-dialog>
+    </div>
+    <q-separator class="q-my-md" />
+    <div style="font-family: Actor" class="col-md-8 col-xs-12 q-mx-auto row">
       <div class="q-px-xs-md q-px-md-none text-weight-bold text-h5 q-my-md text-uppercase text-h5">
         YOU MIGHT ALSO LIKE
       </div>
@@ -194,9 +295,10 @@ import Viewer from 'v-viewer'
 import Vue from 'vue'
 Vue.use(Viewer)
 import 'quasar/dist/quasar.addon.css'
+import UserComment from "components/UserComment";
 export default {
   name: "Product",
-  components: {CardProductDashboard,CardProductViewed},
+  components: {UserComment, CardProductDashboard,CardProductViewed},
   data () {
     return {
       slideOffer: 1,
@@ -313,10 +415,16 @@ export default {
             'Main: 100% Polyester.'
           ]
         }
-      ]
+      ],
+      totalRating: 3.5,
+      recentlyRating: 2,
+      dialog: false
     }
   },
   methods: {
+      open () {
+      this.dialog = true
+    },
     addToCart() {
       this.$q.notify({
         type: 'positive',

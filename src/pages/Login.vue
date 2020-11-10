@@ -41,17 +41,21 @@
                 </template>
               </q-input>
 
-              <q-toggle
+              <div class="flex items-center q-mt-md justify-between">
+                <q-toggle
                 v-model="rememberMe"
                 checked-icon="check"
-                class="q-mt-md"
                 color="primary"
                 unchecked-icon="clear"
-              >
-                <div style="font-weight: normal" class="text-subtitle2">
-                  Remember me?
+                >
+                  <div style="font-weight: normal" class="text-subtitle2">
+                    Remember me?
+                  </div>
+                </q-toggle>
+                <div class="text-subtitle2 cursor-pointer" @click="go('/forgot-password')">
+                  Forgot password?
                 </div>
-              </q-toggle>
+              </div>
 
               <div class="flex justify-center">
                 <q-btn @click="onLogin" outline color="primary" class="q-my-sm q-px-xl q-py-xs text-body1" label="Login" />
@@ -83,7 +87,12 @@
                   <q-icon name="account_circle" />
                 </template>
               </q-input>
-              <q-input outlined class="q-pt-lg" color="primary" v-model="fullName" label="Full name">
+              <q-input outlined class="q-pt-lg" color="primary" v-model="firstName" label="First name">
+                <template v-slot:prepend>
+                  <q-icon name="person" />
+                </template>
+              </q-input>
+              <q-input outlined class="q-pt-lg" color="primary" v-model="lastName" label="Last name">
                 <template v-slot:prepend>
                   <q-icon name="person" />
                 </template>
@@ -151,7 +160,8 @@ export default {
       password: '',
       confirmPassword: '',
       userName: '',
-      fullName: '',
+      firstName: '',
+      lastName: '',
       isPwd: true,
       isConfirmPwd: true,
       rememberMe: true,

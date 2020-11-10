@@ -5,6 +5,10 @@ const routes = [
     component: () => import('pages/Login.vue')
   },
   {
+    path: '/forgot-password',
+    component: () => import('pages/ForgotPassword.vue')
+  },
+  {
     path: '/',
     meta: {
       requireAuth: true

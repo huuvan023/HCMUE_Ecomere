@@ -114,7 +114,7 @@
               </div>
             </div>
           <div class="col-12 q-my-md-xl q-my-xs-md">
-            <Timer deadline="11/01/2020"/>
+            <Timer deadline="01/01/2021"/>
           </div>
           <div>
             <q-btn label="Buy now!!!"/>
